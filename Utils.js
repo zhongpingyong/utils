@@ -49,5 +49,24 @@ export default {
                 setInterval(task, 24 * 60 * 60 * 1000)
             }
         }, 1000)
+    },
+    /*
+    * 一维数组转二维数组
+    *params:
+    *
+    * array是数组
+    * n 每页显示几个
+    * */
+    switchOneArrayTwo(array,n){
+        try {
+            let lineNum = array.length % 10 === 0 ? array.length / 10 : Math.ceil(array.length/10);
+            let A=[]
+            for (let i=0;i<lineNum;i++){
+                A.push(array.slice(i*n, i*n+n))
+            }
+            return A
+        }catch (e) {
+            console.log(e)
+        }
     }
 }
